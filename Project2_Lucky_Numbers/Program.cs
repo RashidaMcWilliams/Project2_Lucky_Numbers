@@ -55,15 +55,15 @@ namespace Project2_Lucky_Numbers
                 for (int i = 0; i < userNumbers.Length; i++)
                 {
                     userNumbers[i] = int.Parse(Console.ReadLine());
-                    Console.WriteLine("Great job! Your number is: " + userNumbers[i]);
-                    Console.WriteLine("Enter your next number.");
-                    while (i > 5)
-
-
+                    if (userNumbers[i] < lowNum || userNumbers[i] > highNum)
                     {
-                        Console.WriteLine();
+                        Console.WriteLine("Invalid number. Please try again.");
                     }
-
+                    else
+                    {
+                        Console.WriteLine("Great job! Your number is: " + userNumbers[i]);
+                    }
+                    
                 }
 
                 Console.WriteLine();
@@ -91,7 +91,7 @@ namespace Project2_Lucky_Numbers
                 }
                 Console.WriteLine("You've got " + matchNum + " matches!");
 
-                double sum = matchNum * .16;
+                double sum = matchNum * .16666667;
                 double totalWinnings = sum * 75000;
                 Console.WriteLine("You win $" + totalWinnings);
 
@@ -99,11 +99,17 @@ namespace Project2_Lucky_Numbers
 
                 Console.WriteLine("Would you like to play Lucky Numbers again? (YES/NO)");
                 playAgain = Console.ReadLine().ToUpper();
+                if (playAgain == "YES")
+                {
+                    Console.WriteLine("One more time!");
+                }
+                else
+                {
+                    Console.WriteLine("Thanks for playing!");
+                }
 
             }
-            while (playAgain == "YES");
-            Console.WriteLine("One more time!");
-
+            while (playAgain == "YES");       
         }
     }
 }
