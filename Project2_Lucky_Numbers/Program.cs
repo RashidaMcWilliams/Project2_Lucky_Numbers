@@ -58,6 +58,8 @@ namespace Project2_Lucky_Numbers
                     if (userNumbers[i] < lowNum || userNumbers[i] > highNum)
                     {
                         Console.WriteLine("Invalid number. Please try again.");
+                        userNumbers[i] = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Great job! Your number is: " + userNumbers[i]);
                     }
                     else
                     {
